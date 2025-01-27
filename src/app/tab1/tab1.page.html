@@ -1,5 +1,15 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons>
+      <ion-button>
+        <ion-icon name="menu"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button>
+          <ion-icon name="cube-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
     <ion-title>
       Tab 1
     </ion-title>
@@ -7,11 +17,25 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <a routerLink="/login">Ir a Login</a>
+
+  <ion-card *ngFor="let item of items" color="tertiary">
+    <img [src]="item.imageUrl" alt="{{ item.card_name }}">
+    <ion-card-header>
+      <ion-card-title>{{ item.card_name}}</ion-card-title>
+      <ion-card-subtitle>{{ item.card_name}}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+    {{ item.card_description }}
+    </ion-card-content>
+  </ion-card>
+
+
+<ion-fab slot="fixed" vertical="bottom" horizontal="end">
+  <ion-fab-button><ion-icon name="add-outline"></ion-icon></ion-fab-button>
+</ion-fab>
+
 </ion-content>
+
